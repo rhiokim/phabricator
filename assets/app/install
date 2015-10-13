@@ -21,6 +21,8 @@ sudo -u git -H git clone -q --depth 1 \
 https://github.com/phacility/libphutil.git
 sudo -u git -H git clone -q --depth 1 \
 https://github.com/phacility/arcanist.git
+sudo -u git -H git clone -q --depth 1 \
+https://github.com/wikimedia/phabricator-extensions-Sprint.git
 
 
 #移除nginx 預設站點設定

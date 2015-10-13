@@ -1,5 +1,5 @@
 FROM ubuntu:trusty-20150427
-MAINTAINER Likol <likol@likol.idv.tw>
+MAINTAINER Rhio Kim <rhio.kim@gmail.com>
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 8B3981E7A6852F782CC4951600A6F0A3C300EE8C \
 && apt-key adv --keyserver keyserver.ubuntu.com --recv 14AA40EC0831756756D7F66C4F4EA0AAE5267A6C \
@@ -23,6 +23,11 @@ COPY assets/ /opt/assets/
 RUN chmod 755 /opt/assets/app/install
 RUN /opt/assets/app/install
 
+# Install Phabricator Sprint extension
+
 WORKDIR /opt/phabricator
+RUN git clone https://github.com/wikimedia/phabricator-extensions-Sprint.git libext/sprint
+RUN cd bin; ./config set load-libraries '{"sprint":"/opt/phabricator/libext/sprint/src"}'
+RUN ln -s /opt/phabricator/libext/sprint/rsrc/webroot-static /opt/phabricator/webroot/rsrc/sprint
 
 CMD ["./init"]

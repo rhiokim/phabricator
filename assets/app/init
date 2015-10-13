@@ -97,6 +97,9 @@ sed 's/{{PHP_OPCACHE_MEMORY}}/'"${PHP_OPCACHE_MEMORY}"'/g' -i /etc/php5/fpm/php.
 cd /${PHD_HOME}
 # start init database
 echo "Starting init database..."
+./bin/config set mysql.host ${DB_HOST}
+./bin/config set mysql.user ${DB_USER}
+./bin/config set mysql.pass ${DB_PASS}
 ./bin/storage upgrade -f
 
 # start phabricator daemons
