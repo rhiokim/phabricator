@@ -22,8 +22,14 @@ https://github.com/phacility/libphutil.git
 sudo -u git -H git clone -q --depth 1 \
 https://github.com/phacility/arcanist.git
 sudo -u git -H git clone -q --depth 1 \
-https://github.com/wikimedia/phabricator-extensions-Sprint.git
+https://github.com/wikimedia/phabricator-extensions-Sprint.git phabricator/libext/sprint
 
+
+# Install Phabricator Sprint extension
+
+cd /opt/phabricator/bin
+./config set load-libraries '{"sprint":"/opt/phabricator/libext/sprint/src"}'
+ln -s /opt/phabricator/libext/sprint/rsrc/webroot-static /opt/phabricator/webroot/rsrc/sprint
 
 #移除nginx 預設站點設定
 rm -f /etc/nginx/sites-enabled/default

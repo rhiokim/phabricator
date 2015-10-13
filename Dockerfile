@@ -26,8 +26,5 @@ RUN /opt/assets/app/install
 # Install Phabricator Sprint extension
 
 WORKDIR /opt/phabricator
-RUN git clone https://github.com/wikimedia/phabricator-extensions-Sprint.git libext/sprint
-RUN cd bin; ./config set load-libraries '{"sprint":"/opt/phabricator/libext/sprint/src"}'
-RUN ln -s /opt/phabricator/libext/sprint/rsrc/webroot-static /opt/phabricator/webroot/rsrc/sprint
 
 CMD ["./init"]
