@@ -50,6 +50,8 @@ MAIL_ADAPTER=${MAIL_ADAPTER:-PhabricatorMailImplementationTestAdapter}
 
 ##END_SMTP_SETTING
 
+# git initialize
+mkdir -p /home/git && chown -R git:git /home/git
 
 #創建 log 目錄
 mkdir -m 0755 -p ${PHD_LOG_DIR}/supervisor ${PHD_LOG_DIR}/nginx && chown -R git:git ${PHD_LOG_DIR} 
